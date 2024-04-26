@@ -3,72 +3,96 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial;
 }
 
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.navbar a {
-  float: right;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
+/* Style tab links */
+.tablink {
+  background-color: #eec0c8;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
   padding: 14px 16px;
-  text-decoration: none;
   font-size: 17px;
+  width: 25%;
 }
 
-.navbar a:hover {
-  background: #f1f1f1;
+.tablink:hover {
+  background-color: white;
   color: black;
 }
 
-.navbar a.active {
-  background-color: #F9629F;
-  color: white;
-}
-
-  /* visited link */
-a:visited {
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
   color: pink;
-}
-.main {
-  padding: 16px;
-  margin-bottom: 30px;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
 }
 
-
-.welcome {
-    color: #EE82EE;
-    text-align: center;
-
-}
+#Bunny Diet {background-color: black;}
+#Bunny Habitat {background-color: #F9629F;}
+#Toxic Foods {background-color: #FFC72C;}
+#Bunny Games {background-color: #32de84;}
 </style>
 </head>
 <body>
 
-<div class="navbar">
-  <a href="bunnydiet.html" class="active">Bunny Diet</a>
-  <a href="toxichabitat.html" class="active">Bunny Habitat</a>
-  <a href="bunnygames.html" class="active">Bunny Games</a>
-  
-  
+<button class="tablink" onclick="openPage('Bunny Diet', this, 'pink')">Bunny Diet</button>
+<button class="tablink" onclick="openPage('Bunny Habitat')" id="defaultOpen">Bunny Habitat</button>
+<button class="tablink" onclick="openPage('Toxic Foods')">Toxic Foods</button>
+<button class="tablink" onclick="openPage('Bunny Games')">Bunny Games</button>
+
+<div id="Bunny Diet" class="tabcontent">
+  <h3>Home</h3>
+  <p>Home is where the heart is..</p>
 </div>
 
-<div class="main">
-  <div class="welcome">
-  <h1>Hello, and welcome to My Bunny Care!</h1>
-  <p></p>This website was created to help owners of bunny rabbits care and love for their beloved pet.</p>
+<div id="Bunny Habitat" class="tabcontent">
+  <h3>Bunny Habitat</h3>
+  <p>Some news this fine day!</p> 
 </div>
 
+<div id="Toxic Foods" class="tabcontent">
+  <h3>Toxic Foods</h3>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
+
+<div id="Bunny Games" class="tabcontent">
+  <h3>Bunny Games</h3>
+  <p>Who we are and what we do.</p>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
 </body>
-</html>
+</html> 
+
+
+</html> 
 
